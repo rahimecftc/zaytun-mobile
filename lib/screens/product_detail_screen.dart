@@ -132,6 +132,7 @@ class ProductDetailScreen extends StatelessWidget {
                                   builder: (context) => CartScreen(
                                     cart: cart,
                                     onRemove: onRemoveFromCart,
+                                    onAddToCart: onAddToCart,
                                   ),
                                 ),
                               );
