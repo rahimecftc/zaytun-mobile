@@ -1,36 +1,44 @@
 # ZAYTUN Mobile Catalog App
 
-Flutter ile geliştirdiğim mini katalog uygulaması. ZAYTUN adlı zeytin temelli doğal ürünler markasının mobil ürün kataloğunu simüle ediyor.
+A mobile product catalog app built with Flutter for **ZAYTUN** — a brand focused on natural olive-based products.
 
-## Kullanılan Flutter Sürümü
+## Flutter Version
 
 Flutter 3.x / Dart 3.x
 
-## Özellikler
+## Features
 
-- Ürün listeleme (GridView)
-- Kategori filtreleme
-- Ürün arama
-- Ürün detay sayfası
-- Sepete ürün ekleme
-- Sepet görüntüleme
-- Sayfa geçişleri (Navigator)
+- Product listing with GridView
+- Category filtering (Oil, Care, Aroma, Tea)
+- Product search
+- Product detail screen with description
+- Add to cart functionality
+- Cart with item count badge
+- Remove individual items or clear entire cart
+- Empty cart state
+- Navigator-based screen transitions
 
-## Ekranlar
+## Screenshots
 
-| Ekran | Açıklama |
-|---|---|
-| Home Screen | Ürün listesi, arama, kategori filtresi |
-| Product Detail | Ürün detayı, sepete ekle |
-| Cart Screen | Sepet listesi, toplam fiyat, checkout |
+| Home Screen | Product Detail | Cart | Empty Cart |
+|:-----------:|:--------------:|:----:|:----------:|
+| ![Home](assets/screenshots/screenshot_home.png) | ![Detail](assets/screenshots/screenshot_detail.png) | ![Cart](assets/screenshots/screenshot_cart.png) | ![Empty](assets/screenshots/screenshot_empty_cart.png) |
 
-## Kurulum
+## Screens
+
+| Screen | Description |
+|--------|-------------|
+| Home Screen | Product grid, search bar, category filters |
+| Product Detail | Product image, description, add to cart button |
+| Cart Screen | Cart items, total price, remove & clear, checkout |
+
+## Setup
 
 ```bash
 flutter pub get
-flutter run
+flutter run -d chrome
 ```
 
-## GitHub Linki
+## GitHub
 
-> Deploy sonrası buraya eklenecek
+[github.com/rahimecftc/zaytun-mobile](https://github.com/rahimecftc/zaytun-mobile)
