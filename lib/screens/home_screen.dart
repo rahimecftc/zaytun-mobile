@@ -132,24 +132,43 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                'ZAYTUN',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w800,
-                  color: Color(0xFF6B7A52),
-                  letterSpacing: 1.5,
+          Row(
+            children: [
+              Image.asset(
+                'assets/images/logo.png',
+                width: 40,
+                height: 40,
+                errorBuilder: (context, error, stackTrace) => Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF6B7A52),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Icon(Icons.eco, color: Colors.white, size: 22),
                 ),
               ),
-              Text(
-                'Natural Olive Collection',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Color(0xFF8E8E8E),
-                ),
+              const SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    'ZAYTUN',
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w800,
+                      color: Color(0xFF6B7A52),
+                      letterSpacing: 1.5,
+                    ),
+                  ),
+                  Text(
+                    'Natural Olive Collection',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Color(0xFF8E8E8E),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

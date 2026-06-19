@@ -62,20 +62,37 @@ class ProductCard extends StatelessWidget {
           children: [
             // Ürün görseli alanı
             Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: _categoryColor(),
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(16),
-                  ),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(16),
                 ),
-                child: Center(
-                  child: Icon(
-                    _categoryIcon(),
-                    size: 48,
-                    color: const Color(0xFF6B7A52),
-                  ),
-                ),
+                child: product.image.isNotEmpty
+                    ? Image.network(
+                        product.image,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        errorBuilder: (context, error, stackTrace) =>
+                            Container(
+                          color: _categoryColor(),
+                          child: Center(
+                            child: Icon(
+                              _categoryIcon(),
+                              size: 48,
+                              color: const Color(0xFF6B7A52),
+                            ),
+                          ),
+                        ),
+                      )
+                    : Container(
+                        color: _categoryColor(),
+                        child: Center(
+                          child: Icon(
+                            _categoryIcon(),
+                            size: 48,
+                            color: const Color(0xFF6B7A52),
+                          ),
+                        ),
+                      ),
               ),
             ),
 

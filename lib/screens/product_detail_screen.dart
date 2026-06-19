@@ -56,17 +56,35 @@ class ProductDetailScreen extends StatelessWidget {
                     // ── Üst görsel alanı
                     Stack(
                       children: [
-                        Container(
+                        SizedBox(
                           height: 300,
                           width: double.infinity,
-                          color: _categoryColor(),
-                          child: Center(
-                            child: Icon(
-                              _categoryIcon(),
-                              size: 100,
-                              color: const Color(0xFF6B7A52),
-                            ),
-                          ),
+                          child: product.image.isNotEmpty
+                              ? Image.network(
+                                  product.image,
+                                  fit: BoxFit.cover,
+                                  errorBuilder: (context, error, stackTrace) =>
+                                      Container(
+                                    color: _categoryColor(),
+                                    child: Center(
+                                      child: Icon(
+                                        _categoryIcon(),
+                                        size: 100,
+                                        color: const Color(0xFF6B7A52),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : Container(
+                                  color: _categoryColor(),
+                                  child: Center(
+                                    child: Icon(
+                                      _categoryIcon(),
+                                      size: 100,
+                                      color: const Color(0xFF6B7A52),
+                                    ),
+                                  ),
+                                ),
                         ),
 
                         // Geri butonu
