@@ -3,6 +3,7 @@ import '../models/product.dart';
 import '../data/products.dart';
 import '../widgets/product_card.dart';
 import '../widgets/category_chip.dart';
+import '../widgets/zaytun_logo.dart';
 import 'product_detail_screen.dart';
 import 'cart_screen.dart';
 
@@ -134,20 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Row(
             children: [
-              Image.asset(
-                'assets/images/logo.png',
-                width: 40,
-                height: 40,
-                errorBuilder: (context, error, stackTrace) => Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF6B7A52),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Icon(Icons.eco, color: Colors.white, size: 22),
-                ),
-              ),
+              const ZaytunLogo(size: 40),
               const SizedBox(width: 10),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

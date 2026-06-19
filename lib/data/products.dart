@@ -15,7 +15,7 @@ final List<Map<String, dynamic>> productData = [
     'name': 'Cold Pressed Olive Oil',
     'category': 'Oil',
     'price': 289.0,
-    'image': 'https://images.pexels.com/photos/33783/pexels-photo-33783.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'image': 'https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=600',
     'description':
         'Pure cold pressed olive oil extracted without heat to preserve nutrients. Ideal for salads, dips and light cooking.',
   },
