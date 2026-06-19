@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import '../models/product.dart';
+import 'cart_screen.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   final Product product;
   final Function(Product) onAddToCart;
+  final List<Product> cart;
+  final Function(Product) onRemoveFromCart;
 
   const ProductDetailScreen({
     super.key,
     required this.product,
     required this.onAddToCart,
+    required this.cart,
+    required this.onRemoveFromCart,
   });
 
   Color _categoryColor() {
@@ -110,6 +115,73 @@ class ProductDetailScreen extends StatelessWidget {
                                 Icons.arrow_back_ios_new,
                                 size: 16,
                                 color: Color(0xFF6B7A52),
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        // Sepet ikonu
+                        Positioned(
+                          top: 12,
+                          right: 12,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CartScreen(
+                                    cart: cart,
+                                    onRemove: onRemoveFromCart,
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.1),
+                                    blurRadius: 8,
+                                  ),
+                                ],
+                              ),
+                              child: Stack(
+                                children: [
+                                  const Center(
+                                    child: Icon(
+                                      Icons.shopping_bag_outlined,
+                                      size: 20,
+                                      color: Color(0xFF6B7A52),
+                                    ),
+                                  ),
+                                  if (cart.isNotEmpty)
+                                    Positioned(
+                                      right: 6,
+                                      top: 6,
+                                      child: Container(
+                                        width: 14,
+                                        height: 14,
+                                        decoration: const BoxDecoration(
+                                          color: Color(0xFFC9784A),
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            '${cart.length}',
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 9,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                ],
                               ),
                             ),
                           ),

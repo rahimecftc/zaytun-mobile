@@ -3,8 +3,9 @@ import '../models/product.dart';
 
 class CartScreen extends StatelessWidget {
   final List<Product> cart;
+  final Function(Product) onRemove;
 
-  const CartScreen({super.key, required this.cart});
+  const CartScreen({super.key, required this.cart, required this.onRemove});
 
   double get _totalPrice =>
       cart.fold(0, (sum, product) => sum + product.price);
@@ -182,6 +183,25 @@ class CartScreen extends StatelessWidget {
                         fontSize: 15,
                         fontWeight: FontWeight.w700,
                         color: Color(0xFF6B7A52),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+
+                    // Sil butonu
+                    GestureDetector(
+                      onTap: () => onRemove(product),
+                      child: Container(
+                        width: 28,
+                        height: 28,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFFEEEE),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Icon(
+                          Icons.close,
+                          size: 16,
+                          color: Color(0xFFD9534F),
+                        ),
                       ),
                     ),
                   ],

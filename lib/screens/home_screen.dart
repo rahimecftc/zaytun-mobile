@@ -48,6 +48,12 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void _removeFromCart(Product product) {
+    setState(() {
+      _cart.remove(product);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -169,7 +175,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CartScreen(cart: _cart),
+                      builder: (context) => CartScreen(
+                    cart: _cart,
+                    onRemove: _removeFromCart,
+                  ),
                     ),
                   );
                 },
@@ -346,6 +355,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 builder: (context) => ProductDetailScreen(
                   product: product,
                   onAddToCart: _addToCart,
+                  cart: _cart,
+                  onRemoveFromCart: _removeFromCart,
                 ),
               ),
             );
