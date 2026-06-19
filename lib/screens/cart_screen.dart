@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import '../models/product.dart';
+import 'product_detail_screen.dart';
 
 class CartScreen extends StatefulWidget {
   final List<Product> cart;
   final Function(Product) onRemove;
+  final Function(Product) onAddToCart;
 
-  const CartScreen({super.key, required this.cart, required this.onRemove});
+  const CartScreen({
+    super.key,
+    required this.cart,
+    required this.onRemove,
+    required this.onAddToCart,
+  });
 
   @override
   State<CartScreen> createState() => _CartScreenState();
@@ -128,7 +135,21 @@ class _CartScreenState extends State<CartScreen> {
             itemCount: _localCart.length,
             itemBuilder: (context, index) {
               final product = _localCart[index];
-              return Container(
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProductDetailScreen(
+                        product: product,
+                        onAddToCart: widget.onAddToCart,
+                        cart: _localCart,
+                        onRemoveFromCart: _remove,
+                      ),
+                    ),
+                  );
+                },
+                child: Container(
                 margin: const EdgeInsets.only(bottom: 12),
                 padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
@@ -226,6 +247,7 @@ class _CartScreenState extends State<CartScreen> {
                     ),
                   ],
                 ),
+              ),
               );
             },
           ),

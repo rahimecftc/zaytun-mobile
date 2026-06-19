@@ -178,6 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       builder: (context) => CartScreen(
                     cart: _cart,
                     onRemove: _removeFromCart,
+                    onAddToCart: _addToCart,
                   ),
                     ),
                   );
