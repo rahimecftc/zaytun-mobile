@@ -42,12 +42,12 @@ class _CartScreenState extends State<CartScreen> {
       context: context,
       builder: (context) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text('Sepeti Boşalt'),
-        content: const Text('Tüm ürünler sepetten kaldırılacak. Emin misin?'),
+        title: const Text('Clear Cart'),
+        content: const Text('All products will be removed from your cart. Are you sure?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('İptal', style: TextStyle(color: Color(0xFF8E8E8E))),
+            child: const Text('Cancel', style: TextStyle(color: Color(0xFF8E8E8E))),
           ),
           TextButton(
             onPressed: () {
@@ -58,7 +58,7 @@ class _CartScreenState extends State<CartScreen> {
                 widget.onRemove(p);
               }
             },
-            child: const Text('Boşalt', style: TextStyle(color: Color(0xFFD9534F))),
+            child: const Text('Clear', style: TextStyle(color: Color(0xFFD9534F))),
           ),
         ],
       ),
@@ -93,7 +93,7 @@ class _CartScreenState extends State<CartScreen> {
             TextButton(
               onPressed: _clearCart,
               child: const Text(
-                'Boşalt',
+                'Clear',
                 style: TextStyle(
                   color: Color(0xFFD9534F),
                   fontSize: 13,
