@@ -20,9 +20,9 @@ Flutter 3.x / Dart 3.x
 
 ## Screenshots
 
-| Home Screen | Product Detail | Cart | Empty Cart |
-|:-----------:|:--------------:|:----:|:----------:|
-| ![Home](assets/screenshots/screenshot_home.png) | ![Detail](assets/screenshots/screenshot_detail.png) | ![Cart](assets/screenshots/screenshot_cart.png) | ![Empty](assets/screenshots/screenshot_empty_cart.png) |
+| Home Screen | Cart | Product Detail | Empty Cart |
+|:-----------:|:----:|:--------------:|:----------:|
+| ![Home](assets/screenshots/screenshot_home.png) | ![Cart](assets/screenshots/screenshot_cart.png) | ![Detail](assets/screenshots/screenshot_detail.png) | ![Empty](assets/screenshots/screenshot_empty_cart.png) |
 
 ## Screens
 
