@@ -123,18 +123,27 @@ class CartScreen extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    // Ürün ikonu
-                    Container(
-                      width: 52,
-                      height: 52,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF6F1E9),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: const Icon(
-                        Icons.eco_outlined,
-                        color: Color(0xFF6B7A52),
-                        size: 26,
+                    // Ürün görseli
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(
+                        product.image,
+                        width: 52,
+                        height: 52,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          width: 52,
+                          height: 52,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFF6F1E9),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Icon(
+                            Icons.eco_outlined,
+                            color: Color(0xFF6B7A52),
+                            size: 26,
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(width: 12),
