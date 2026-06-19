@@ -1,14 +1,34 @@
 import 'package:flutter/material.dart';
 import '../models/product.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   final List<Product> cart;
   final Function(Product) onRemove;
 
   const CartScreen({super.key, required this.cart, required this.onRemove});
 
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
+  late List<Product> _localCart;
+
+  @override
+  void initState() {
+    super.initState();
+    _localCart = List.from(widget.cart);
+  }
+
   double get _totalPrice =>
-      cart.fold(0, (sum, product) => sum + product.price);
+      _localCart.fold(0, (sum, product) => sum + product.price);
+
+  void _remove(Product product) {
+    setState(() {
+      _localCart.remove(product);
+    });
+    widget.onRemove(product);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +54,7 @@ class CartScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          if (cart.isNotEmpty)
+          if (_localCart.isNotEmpty)
             Padding(
               padding: const EdgeInsets.only(right: 16),
               child: Center(
@@ -48,7 +68,7 @@ class CartScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
-                    '${cart.length} items',
+                    '${_localCart.length} items',
                     style: const TextStyle(
                       color: Color(0xFFC9784A),
                       fontSize: 12,
@@ -60,7 +80,7 @@ class CartScreen extends StatelessWidget {
             ),
         ],
       ),
-      body: cart.isEmpty ? _buildEmptyCart() : _buildCartList(context),
+      body: _localCart.isEmpty ? _buildEmptyCart() : _buildCartList(context),
     );
   }
 
@@ -105,9 +125,9 @@ class CartScreen extends StatelessWidget {
         Expanded(
           child: ListView.builder(
             padding: const EdgeInsets.all(16),
-            itemCount: cart.length,
+            itemCount: _localCart.length,
             itemBuilder: (context, index) {
-              final product = cart[index];
+              final product = _localCart[index];
               return Container(
                 margin: const EdgeInsets.only(bottom: 12),
                 padding: const EdgeInsets.all(14),
@@ -189,7 +209,7 @@ class CartScreen extends StatelessWidget {
 
                     // Sil butonu
                     GestureDetector(
-                      onTap: () => onRemove(product),
+                      onTap: () => _remove(product),
                       child: Container(
                         width: 28,
                         height: 28,
